@@ -1,6 +1,8 @@
 import 'package:eshoppy/data/cart_list.dart';
 import 'package:eshoppy/screens/cart_screen.dart';
+import 'package:eshoppy/screens/fav_screen.dart';
 import 'package:eshoppy/screens/home_screen.dart';
+import 'package:eshoppy/screens/profile_screen.dart';
 import 'package:eshoppy/screens/search_screen.dart';
 import 'package:eshoppy/screens/splash_screen.dart';
 
@@ -22,17 +24,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-         ChangeNotifierProvider(
-          create: (context) =>  CartList(),
+        ChangeNotifierProvider(
+          create: (context) => CartList(),
         ),
-         
-          ChangeNotifierProvider(
-          create: (context) =>  BottomNavBar(),
+        ChangeNotifierProvider(
+          create: (context) => BottomNavBar(),
         ),
-       
       ],
       child: const MaterialApp(
-          debugShowCheckedModeBanner: false, home: SplashScreen()),
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
     );
   }
 }
@@ -53,7 +55,13 @@ class MyMainScreens extends StatelessWidget {
           onPageChanged: ((value) {
             provider.bottomNavIndex(value);
           }),
-          children: const [HomeScreen(), SearchScreen(), CartScreen()],
+          children: const [
+            HomeScreen(),
+            SearchScreen(),
+            CartScreen(),
+            FavScreen(),
+            ProfileScreen()
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -64,8 +72,6 @@ class MyMainScreens extends StatelessWidget {
         currentIndex: currentIndex,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        selectedItemColor: iconAndActiveTextColor,
-        unselectedItemColor: iconAndInactiveTextColor,
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
@@ -74,6 +80,7 @@ class MyMainScreens extends StatelessWidget {
               'assets/icons/home_outlined.svg',
               width: 24,
               height: 24,
+              color: Colors.grey,
             ),
             activeIcon: SvgPicture.asset(
               'assets/icons/home_filled.svg',
@@ -87,6 +94,7 @@ class MyMainScreens extends StatelessWidget {
               'assets/icons/search.svg',
               width: 24,
               height: 24,
+              color: Colors.grey,
             ),
             activeIcon: SvgPicture.asset(
               'assets/icons/search_filled.svg',
@@ -100,6 +108,7 @@ class MyMainScreens extends StatelessWidget {
               'assets/icons/shopping-basket.svg',
               width: 25,
               height: 25,
+              color: Colors.grey,
             ),
             activeIcon: SvgPicture.asset(
               'assets/icons/shopping-basket-filled.svg',
@@ -113,6 +122,7 @@ class MyMainScreens extends StatelessWidget {
               'assets/icons/heart_outlined.svg',
               width: 24,
               height: 24,
+              color: Colors.grey,
             ),
             activeIcon: SvgPicture.asset(
               'assets/icons/heart_filled.svg',
@@ -126,6 +136,7 @@ class MyMainScreens extends StatelessWidget {
               'assets/icons/user_outlined.svg',
               width: 24,
               height: 24,
+              color: Colors.grey,
             ),
             activeIcon: SvgPicture.asset(
               'assets/icons/user_filled.svg',

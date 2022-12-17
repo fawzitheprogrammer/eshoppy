@@ -1,6 +1,5 @@
 import 'package:color_parser/color_parser.dart';
 import 'package:eshoppy/data/cart_list.dart';
-import 'package:eshoppy/data/products_list.dart';
 import 'package:eshoppy/helpers/helper_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

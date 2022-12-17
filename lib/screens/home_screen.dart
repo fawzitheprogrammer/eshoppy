@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:eshoppy/helpers/helper_imports.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -126,7 +125,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      
     );
   }
 

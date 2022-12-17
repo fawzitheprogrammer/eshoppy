@@ -1,3 +1,4 @@
+import 'package:eshoppy/data/bottom_navbar_provider.dart';
 import 'package:eshoppy/helpers/font_size.dart';
 import 'package:eshoppy/main.dart';
 import 'package:flutter/material.dart';
@@ -58,9 +59,10 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         children: [
                           /// Form title - Fashion app
-                           Text(
+                          Text(
                             'Eshoppy',
-                            style: poppinsCustom(Colors.black54, 18).copyWith(fontWeight:FontWeight.w600),
+                            style: poppinsCustom(Colors.black54, 18)
+                                .copyWith(fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(height: 10),
 
@@ -72,8 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                                 color: Colors.black45,
                               ),
                               hintText: 'Email',
-                              hintStyle:
-                                  poppinsCustom(Colors.grey, 14),
+                              hintStyle: poppinsCustom(Colors.grey, 14),
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.6),
                               border: OutlineInputBorder(
@@ -93,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                                 color: Colors.black45,
                               ),
                               hintText: 'Password',
-                              hintStyle:poppinsCustom(Colors.grey, 14),
+                              hintStyle: poppinsCustom(Colors.grey, 14),
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.6),
                               border: OutlineInputBorder(
@@ -136,7 +137,18 @@ class _LoginPageState extends State<LoginPage> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     color: Colors.black87,
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Provider.of<BottomNavBar>(context,
+                                              listen: false)
+                                          .bottomNavIndex(0);
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const MyMainScreens(),
+                                          ),
+                                          (route) => false);
+                                    },
                                     child: Text(
                                       'Login',
                                       style: poppinsCustom(Colors.white, 18),
